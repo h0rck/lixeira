@@ -5,7 +5,6 @@ import {api} from '../api/url';
 export function useAuth() {
   const [authenticated, setAuthenticated] = useState(false);
 
-  
   function handleSetToken():boolean { 
       const token = localStorage.getItem('token');
       if (token) {
@@ -17,18 +16,16 @@ export function useAuth() {
       return authenticated;
   }
   
-  function handleLogin(token:string):boolean {
+  function handleLogin(token:string) {
     localStorage.setItem('token', JSON.stringify(token));
     api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     setAuthenticated(true);
-    return authenticated;
   }
 
-  function handleLogout():boolean {
+  function handleLogout() {
     localStorage.removeItem('token');
     api.defaults.headers.common['Authorization'] = '';
     setAuthenticated(false);
-    return authenticated;
   }
   
   return { authenticated, handleSetToken, handleLogin, handleLogout };

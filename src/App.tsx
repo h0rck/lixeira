@@ -1,10 +1,13 @@
-import { Home } from "./pages/home/Index";
-// import { Register } from './pages/register/Index';
+import { BrowserRouter} from "react-router-dom";
+import Routes from './routes'
+import {GlobalStyle} from './styles/global';
+
 
 export function App() {
   return (
-    <div className="App">
-      <Home />
-    </div>
+    <BrowserRouter>
+          <GlobalStyle/>
+          <Routes/>
+    </BrowserRouter>
   );
 }

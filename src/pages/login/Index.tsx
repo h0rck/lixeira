@@ -8,7 +8,7 @@ import { Register } from '../register/Index';
 import { Input } from '../../components/Input';
 import axios from 'axios';
 
-export function Home(){
+export function Login(){
   const [modalVisible, setModalVisible] = useState<Boolean>(false)
   const [formValues, setFormValues] = useState({})
 
@@ -31,7 +31,7 @@ export function Home(){
     
   return (
     <>
-      {modalVisible && <Register/>}
+      <Register/>
       <PageAuth >
         <aside>
           <img src="" alt="Ilustração" />

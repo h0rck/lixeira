@@ -6,35 +6,11 @@ import {Button} from '../../components/Button';
 import { Column } from '../../components/Column';
 
 import {Input} from '../../components/Input'
+import {Modal} from '../../components/Modal';
 
 
-const Main = styled.main`
-    position: fixed;
-    z-index: 1;
-    margin: 100px calc(50% - 400px);
-    background: #fff;  
-    height: 500px;
-    border-radius: 20px; 
-    border: 1px solid #e4e4e9; 
-    @media only screen and (max-width: 900px) { 
-      margin: 0;
 
-        height: 100vh;
 
-     }
-  }
-    
-`;
-const Form = styled.form`
-  margin: 40px 0;
-  padding: 50px;
-
-  @media only screen and (max-width: 900px) { 
-      margin: 10%;
-
-     }
-
-`;
 
 
 
@@ -63,17 +39,45 @@ export function Register(){
    
 
   return (
-        <Main>
+        <Modal>
           <Form onSubmit={handleSubmit}>
-              <Input type="text" text="Nome completo" name="nome" desktop={5} padding={'1rem'} onChange={handleInputChange}/>
-              <Input type="text" text="E-mail" name="email" desktop={6} padding={'1rem'} onChange={handleInputChange} />
-              <Input type="password" text="Senha" name="senha" desktop={5} padding={'1rem'} onChange={handleInputChange}/>
+            <Column>
+              <Input type="text" text="Nome completo" name="nome" padding={'1rem'} onChange={handleInputChange}/>
+              <Input type="text" text="E-mail" name="email" padding={'1rem'} onChange={handleInputChange} />
+              <Input type="password" text="Senha" name="senha" padding={'1rem'} onChange={handleInputChange}/>
               {/* <Input type="password" text="Senha" name="senha2" desktop={5} padding={'1rem'} onChange={handleInputChange}/> */}
               <Column>
                 <Button>Registrar</Button> 
               </Column>
+            </Column>
+              
           </Form>
-        </Main>
+        </Modal>
   )
 
 }
+
+const Form = styled.form`
+  width: 500px;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+
+  @media only screen and (max-width: 900px) { 
+      height: 100vh;
+      width: 100vh;
+    }
+`;
+
+// const Main = styled.main`
+//     position: fixed;
+//     z-index: 1;
+//     margin: 100px calc(50% - 400px);
+//     background: #fff;  
+//     height: 500px;
+//     border-radius: 20px; 
+//     border: 1px solid #e4e4e9; 
+    
+//   }
+    
+// `;
